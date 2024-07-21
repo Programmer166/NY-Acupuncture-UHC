@@ -18,6 +18,7 @@ CIGNA_IN_EOB_FLAG="Cigna"
 CIGNA_OUT_EOB_FLAG="Cigna Health"
 #UHC_EOB_FLAG="UNITEDHEALTHCARE"
 UHC_EOB_FLAG="UnitedHealthcare"
+UHC_EOB_FLAG_new="United HealthCare"
 OPTUM_EOB_TAG="Optum Pay"
 AVAILITY_EOB_FLAG="Check Summary"
 UMR_EOB_FLAG="UMR USNAS"
@@ -34,7 +35,7 @@ def PARSING_EOB(filePath):
     pattern=0
     
     for i in range(len(data)):
-        if data[i].find(UHC_EOB_FLAG)!=-1 or data[i].find(OPTUM_EOB_TAG)!=-1 or data[i].find(UMR_EOB_FLAG)!=-1:
+        if data[i].find(UHC_EOB_FLAG)!=-1 or data[i].find(OPTUM_EOB_TAG)!=-1 or data[i].find(UMR_EOB_FLAG)!=-1 or data[i].find(UHC_EOB_FLAG_new)!=-1:
             #print("1")
             EOB_UHC.PARSING_EOB(filePath)
 
@@ -48,7 +49,7 @@ def PARSING_EOB(filePath):
                 break
     if pattern==0:
         #print("2")
-        print( filePath )
+        print( "This file is not United Healthcare------",filePath )
 
 
 
